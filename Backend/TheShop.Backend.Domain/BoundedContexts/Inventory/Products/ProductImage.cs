@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheShop.Backend.Domain.BoundedContexts.Inventory.Products;
+﻿namespace TheShop.Backend.Domain.BoundedContexts.Inventory.Products;
 public class ProductImage
 {
-    public Guid Id { get; private init; }
+    private Guid _id;
+    public Guid Id { get => _id; private init => _id = value; }
 
-    public string ImageSource { get; private set; }
-    public int ImageOrder { get; private set; }
+    private Guid _productId;
+    public Guid ProductId { get => _productId; private init => _productId = value; }
+
+    private string _imageSource;
+    public string ImageSource { get => _imageSource; private set => _imageSource = value; }
+
+    private int _imageOrder;
+    public int ImageOrder { get => _imageOrder; private set => _imageOrder = value; }
 }

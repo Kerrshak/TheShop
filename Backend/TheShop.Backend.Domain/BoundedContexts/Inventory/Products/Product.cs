@@ -4,13 +4,19 @@ namespace TheShop.Backend.Domain.BoundedContexts.Inventory.Products;
 
 public class Product
 {
-    public Guid Id { get; private init; }
+    private Guid _id;
+    public Guid Id { get => _id; private set => _id = value; }
 
-    public string Name { get; private set; }
-    public string Description { get; private set; }
+    private string _name;
+    public string Name { get => _name; private set => _name = value; }
 
-    public Price Price { get; private set; }
+    private string _description;
+    public string Description { get => _description; private set => _description = value; }
 
-    public ICollection<ProductImage> Images { get; } = [];
+    private Price _price;
+    public Price Price { get => _price; private set => _price = value; }
+
+    private readonly ICollection<ProductImage> _images = [];
+    public IEnumerable<ProductImage> Images => _images;
 }
 
